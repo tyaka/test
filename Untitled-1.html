@@ -4,6 +4,42 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <style>
+    /* h2 を虹色グラデーションのテキストに */
+    h2 {
+      background: linear-gradient(90deg,
+        #ff0000,
+        #ff7f00,
+        #ffff00,
+        #00ff00,
+        #00ffff,
+        #0000ff,
+        #8b00ff
+      );
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    /* アニメーションで色が流れる効果（任意） */
+    @keyframes rainbowShift {
+      0% { background-position: 0% 50%; }
+      100% { background-position: 100% 50%; }
+    }
+    h2 {
+      background-size: 300% 300%;
+      animation: rainbowShift 6s linear infinite;
+    }
+      /* フッター配置と画像の整形 */
+      .page-footer {
+        text-align: center;
+        pcdadding: 16px 0 24px;
+      }
+      .page-footer svg {
+        width: 300px;
+        height: 300px;
+        display: inline-block;
+      }
+  </style>
 </head>
 <body>
   <header>
@@ -11,10 +47,58 @@
     <h2>Hello, World</h2>
     <h3>Hello, World</h3>
     <h4>Hello, World</h4>
-    
+    <h5>Hello, World</h5>
+    <h6>Hello, World</h6>  
+    <p>あああああああああああああああああ</p>
+    <p>いいいいいいいいいいいいいいいいい</p>
+    <p>ううううううううううううううううう</p>
+    <p>えええええええええええええええええ</p>
   </header>
   <main>
     <p>This is a minimal HTML5 starter template.</p>
   </main>
+    <footer class="page-footer" aria-label="ページ下部のイラスト">
+      <!-- 生成した桜のベクター画像（SVG） -->
+      <svg class="sakura-svg" viewBox="0 0 300 300" role="img" aria-label="桜の花のイラスト" xmlns="http://www.w3.org/2000/svg">
+        <title>Cherry Blossom</title>
+        <defs>
+          <radialGradient id="petalGrad" cx="50%" cy="35%" r="65%">
+            <stop offset="0%" stop-color="#fff5f9"/>
+            <stop offset="55%" stop-color="#ffc1d6"/>
+            <stop offset="100%" stop-color="#ff8fb6"/>
+          </radialGradient>
+          <radialGradient id="centerGrad" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#ffe07a"/>
+            <stop offset="100%" stop-color="#f4b400"/>
+          </radialGradient>
+          <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+            <feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#000" flood-opacity="0.15"/>
+          </filter>
+        </defs>
+
+        <g transform="translate(150,150)" filter="url(#softShadow)">
+          <!-- 花びら（5枚） -->
+          <g fill="url(#petalGrad)" stroke="#ff6fa5" stroke-width="1.2">
+            <path d="M0,-70 C 22,-66 24,-24 0,-6 C -24,-24 -22,-66 0,-70 Z"/>
+            <path d="M0,-70 C 22,-66 24,-24 0,-6 C -24,-24 -22,-66 0,-70 Z" transform="rotate(72)"/>
+            <path d="M0,-70 C 22,-66 24,-24 0,-6 C -24,-24 -22,-66 0,-70 Z" transform="rotate(144)"/>
+            <path d="M0,-70 C 22,-66 24,-24 0,-6 C -24,-24 -22,-66 0,-70 Z" transform="rotate(216)"/>
+            <path d="M0,-70 C 22,-66 24,-24 0,-6 C -24,-24 -22,-66 0,-70 Z" transform="rotate(288)"/>
+          </g>
+
+          <!-- 花の中心 -->
+          <circle cx="0" cy="0" r="16" fill="url(#centerGrad)" stroke="#e6a600" stroke-width="1"/>
+
+          <!-- 雄しべ風の点 -->
+          <g fill="#fdd835">
+            <circle cx="0" cy="-26" r="2"/>
+            <circle cx="24.7" cy="-7.7" r="2"/>
+            <circle cx="15.3" cy="21.0" r="2"/>
+            <circle cx="-15.3" cy="21.0" r="2"/>
+            <circle cx="-24.7" cy="-7.7" r="2"/>
+          </g>
+        </g>
+      </svg>
+    </footer>
 </body>
 </html>
